@@ -31,9 +31,9 @@ module Pullr
     #   Optional URI for the remote repository.
     #
     def initialize(options={})
+      super(options)
+
       @path = options[:path]
-      @scm = options[:scm]
-      @uri = options[:uri]
 
       unless @scm
         infer_scm_from_dir && infer_scm_from_uri

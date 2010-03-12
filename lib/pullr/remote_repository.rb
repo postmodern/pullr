@@ -26,8 +26,7 @@ module Pullr
     #   The SCM used for the remote repository.
     #
     def initialize(options={})
-      @uri = options[:uri]
-      @scm = options[:scm]
+      super(options)
 
       infer_scm_from_uri unless @scm
 

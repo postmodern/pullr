@@ -5,6 +5,15 @@ module Pullr
     module Rsync
       include CommandLine
 
+      #
+      # Pulls down a copy of a Rsync source repository.
+      #
+      # @param [Addressable::URI] uri
+      #   The URI of the Rsync repository.
+      #
+      # @param [String] dest
+      #   Optional destination to pull the repository down into.
+      #
       def scm_pull(uri,dest=nil)
         unless dest
           raise(ArgumentError,"the destination argument for clone is missing",caller)
@@ -13,6 +22,15 @@ module Pullr
         sh 'rsync', '-a', rsync_uri(uri), dest
       end
 
+      #
+      # Updates a local Rsync repository.
+      #
+      # @param [String] path
+      #   Path to the local repository to update.
+      #
+      # @param [Addressable::URI] uri
+      #   Optional URI of the remote Rsync repository to update from.
+      #
       def scm_update(path,uri=nil)
         unless uri
           raise(ArgumentError,"must specify the 'uri' argument to pull from",caller)

@@ -6,8 +6,13 @@ module Pullr
       include CommandLine
 
       #
-      # Makes a clone of the git source repository as the new local copy
-      # of the project.
+      # Pulls down a copy of a Git source repository.
+      #
+      # @param [Addressable::URI] uri
+      #   The URI of the Git repository.
+      #
+      # @param [String] dest
+      #   Optional destination to pull the repository down into.
       #
       def scm_pull(uri,dest=nil)
         if dest
@@ -18,7 +23,13 @@ module Pullr
       end
 
       #
-      # Updates the local repository.
+      # Updates a local Git repository.
+      #
+      # @param [String] path
+      #   Path to the local repository to update.
+      #
+      # @param [Addressable::URI] uri
+      #   Optional URI of the remote Git repository to update from.
       #
       def scm_update(path,uri=nil)
         cd(path) do

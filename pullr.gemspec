@@ -10,8 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
   s.date = %q{2010-03-11}
+  s.default_executable = %q{pullr}
   s.description = %q{Pullr is a Ruby library for quickly pulling down or updating any Repository. Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync.}
   s.email = %q{postmodern.mod3@gmail.com}
+  s.executables = ["pullr"]
   s.extra_rdoc_files = [
     "ChangeLog.md",
     "LICENSE.txt",
@@ -25,7 +27,9 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "bin/pullr",
     "lib/pullr.rb",
+    "lib/pullr/cli.rb",
     "lib/pullr/exceptions.rb",
     "lib/pullr/exceptions/ambigious_repository.rb",
     "lib/pullr/exceptions/ambigious_uri.rb",

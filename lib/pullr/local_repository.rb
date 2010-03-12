@@ -53,7 +53,7 @@ module Pullr
     #   The name of the control directory.
     #
     def scm_dir
-      SCM::DIRS[@scm]
+      SCM::DIRS.find { |dir,scm| scm == @scm }.first
     end
 
     #

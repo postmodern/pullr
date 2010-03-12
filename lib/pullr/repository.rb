@@ -23,9 +23,11 @@ module Pullr
       @uri = nil
 
       case options[:uri]
+      when Addressable::URI
+        @uri = options[:uri]
       when Hash
         @uri = Addressable::URI.new(options[:uri])
-      when String
+      when URI::Generic, String
         @uri = Addressable::URI.parse(options[:uri])
       end
     end

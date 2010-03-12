@@ -1,0 +1,53 @@
+require 'pullr/repository'
+require 'pullr/local_repository'
+require 'pullr/scm/scm'
+
+module Pullr
+  class RemoteRepository
+
+    include Repository
+
+    # The SCM that manages the remote repository
+    attr_reader :scm
+
+    # The URI of the remote repository
+    attr_reader :uri
+
+    #
+    # Initializes the remote repository.
+    #
+    # @param [Hash] options
+    #   Options for the remote repository.
+    #
+    # @option options [URI::Generic] :uri
+    #   The URI of the remote repository.
+    #
+    # @option options [Symbol, String] :scm
+    #   The SCM used for the remote repository.
+    #
+    def initialize(options={})
+      @uri = options[:uri]
+      @scm = options[:scm]
+
+      infer_scm_from_uri unless @scm
+
+      extend SCM.lookup(@scm)
+    end
+
+    #
+    # Clones the remote repository into the given destination.
+    #
+    # @param [String] dest
+    #   The destination directory to clone the repository into.
+    #
+    # @return [Repository]
+    #   The cloned repository.
+    #
+    def clone(dest)
+      super(@uri,dest)
+
+      return Repository.new(:path => dest, :scm => @scm)
+    end
+
+  end
+end

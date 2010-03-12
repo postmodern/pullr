@@ -48,7 +48,7 @@ module Pullr
     #   The cloned repository.
     #
     def pull(dest)
-      super(@uri,dest)
+      scm_pull(@uri,dest)
 
       return LocalRepository.new(:path => dest, :scm => @scm)
     end

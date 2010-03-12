@@ -63,7 +63,7 @@ module Pullr
     #   Optional URI to pull from.
     #
     def update(uri=self.uri)
-      super(@path,uri)
+      scm_update(@path,uri)
     end
   
   end

@@ -1,9 +1,7 @@
 module Pullr
   module SCM
     module SubVersion
-      protected
-
-      def pull(uri,dest=nil)
+      def scm_pull(uri,dest=nil)
         if dest
           sh 'svn', 'checkout', uri, dest
         else
@@ -11,7 +9,7 @@ module Pullr
         end
       end
 
-      def update(path,uri=nil)
+      def scm_update(path,uri=nil)
         cd(path) { sh 'svn', 'update' }
       end
     end

@@ -1,9 +1,7 @@
 module Pullr
   module SCM
     module Mercurial
-      protected
-
-      def pull(uri,dest=nil)
+      def scm_pull(uri,dest=nil)
         if dest
           sh 'hg', 'clone', uri, dest
         else
@@ -14,7 +12,7 @@ module Pullr
       #
       # Updates the local copy of the project.
       #
-      def update(path,uri=nil)
+      def scm_update(path,uri=nil)
         cd(path) do
           sh 'hg', 'pull'
           sh 'hg', 'update', '-C'

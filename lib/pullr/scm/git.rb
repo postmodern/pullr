@@ -1,13 +1,11 @@
 module Pullr
   module SCM
     module Git
-      protected
-
       #
       # Makes a clone of the git source repository as the new local copy
       # of the project.
       #
-      def pull(uri,dest=nil)
+      def scm_pull(uri,dest=nil)
         if dest
           sh 'git', 'clone', uri, dest
         else
@@ -18,7 +16,7 @@ module Pullr
       #
       # Updates the local repository.
       #
-      def update(path,uri=nil)
+      def scm_update(path,uri=nil)
         cd(path) do
           sh 'git', 'reset', '--hard', 'HEAD'
           sh 'git', 'pull'

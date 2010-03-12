@@ -33,7 +33,7 @@ module Pullr
       #
       def scm_update(path,uri=nil)
         cd(path) do
-          sh 'git', 'reset', '--hard', 'HEAD'
+          sh 'git', 'reset', '-q', '--hard', 'HEAD'
           sh 'git', 'pull'
         end
       end

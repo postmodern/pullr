@@ -21,6 +21,7 @@ module Pullr
       'git' => :git,
       'hg' => :mercurial,
       'svn' => :sub_version,
+      'svn+ssh' => :sub_version,
       'rsync' => :rsync
     }
 

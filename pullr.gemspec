@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "bin/pullr",
     "lib/pullr.rb",
     "lib/pullr/cli.rb",
+    "lib/pullr/command_line.rb",
     "lib/pullr/exceptions.rb",
     "lib/pullr/exceptions/ambigious_repository.rb",
     "lib/pullr/exceptions/ambigious_uri.rb",

@@ -1,6 +1,10 @@
+require 'pullr/command_line'
+
 module Pullr
   module SCM
     module Git
+      include CommandLine
+
       #
       # Makes a clone of the git source repository as the new local copy
       # of the project.

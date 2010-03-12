@@ -1,6 +1,10 @@
+require 'pullr/command_line'
+
 module Pullr
   module SCM
     module Mercurial
+      include CommandLine
+
       def scm_pull(uri,dest=nil)
         if dest
           sh 'hg', 'clone', uri, dest

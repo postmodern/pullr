@@ -1,6 +1,10 @@
+require 'pullr/command_line'
+
 module Pullr
   module SCM
     module Rsync
+      include CommandLine
+
       def scm_pull(uri,dest=nil)
         unless dest
           raise(ArgumentError,"the destination argument for clone is missing",caller)

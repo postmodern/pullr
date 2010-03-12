@@ -14,6 +14,7 @@ module Pullr
       @uri = nil
       @path = nil
       @mode = :clone
+      @args = []
     end
 
     #
@@ -34,7 +35,7 @@ module Pullr
 
       case @mode
       when :clone
-        @uri ||= ARGV[0]
+        @uri ||= @args[0]
 
         unless @uri
           STDERR.puts "pullr: missing the URI argument"
@@ -42,11 +43,11 @@ module Pullr
         end
 
         repo = RemoteRepository.new(
-          :uri => (@uri || ARGV[0]),
+          :uri => @uri,
           :scm => @scm
         )
 
-        repo.pull(@path || ARGV[1])
+        repo.pull(@path || @args[1])
       when :update
         repo = LocalRepository.new(
           :uri => @uri,
@@ -85,7 +86,7 @@ module Pullr
       end
 
       begin
-        opts.parse!(args)
+        @args = opts.parse!(args)
       rescue OptionParser::InvalidOption => e
         STDERR.puts e.message
         STDERR.puts opts

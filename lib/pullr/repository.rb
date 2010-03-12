@@ -33,24 +33,12 @@ module Pullr
     #
     # Attempts to infer the SCM used for the remote repository.
     #
-    # @return [true]
-    #   The SCM was successfully infered.
-    #
-    # @raise [AmbigiousURI]
-    #   The URI for the remote repository was ambigious, and the SCM could
-    #   not be infered from it.
+    # @return [Boolean]
+    #   Specifies whether the SCM was infered from the repository's URI.
     #
     def infer_scm_from_uri
       if @uri
-        uri_scheme = @uri.scheme
-
-        if (@scm = SCM::SCHEMES[uri_scheme])
-          return true
-        end
-
-        uri_ext = File.extname(@uri.path)
-
-        if (@scm = SCM::EXTS[uri_ext])
+        if (@scm = SCM.infer_from_uri(@uri))
           return true
         end
       end
@@ -61,20 +49,13 @@ module Pullr
     #
     # Attempts to infer the SCM used for the repository.
     #
-    # @return [true]
-    #   The SCM was successfully infered.
-    #
-    # @raise [AmbigiousRepository]
-    #   The repository did not contain any known directories used by
-    #   various SCMs.
+    # @return [Boolean]
+    #   Specifies whether the SCM was successfully infered.
     #
     def infer_scm_from_dir
       if @path
-        SCM::DIRS.each do |name,scm|
-          if File.directory?(File.join(@path,name))
-            @scm = scm
-            return true
-          end
+        if (@scm = SCm.infer_from_dir(@path))
+          return true
         end
       end
 

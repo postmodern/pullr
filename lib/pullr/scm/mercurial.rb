@@ -3,8 +3,12 @@ module Pullr
     module Mercurial
       protected
 
-      def clone(uri,dest)
-        sh 'hg', 'clone', uri, dest
+      def clone(uri,dest=nil)
+        if dest
+          sh 'hg', 'clone', uri, dest
+        else
+          sh 'hg', 'clone', uri
+        end
       end
 
       #

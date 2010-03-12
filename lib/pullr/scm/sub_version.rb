@@ -3,8 +3,12 @@ module Pullr
     module SubVersion
       protected
 
-      def clone(uri,dest)
-        sh 'svn', 'checkout', uri, dest
+      def clone(uri,dest=nil)
+        if dest
+          sh 'svn', 'checkout', uri, dest
+        else
+          sh 'svn', 'checkout', uri
+        end
       end
 
       def pull(path,uri=nil)

@@ -1,5 +1,7 @@
 require 'pullr/scm/scm'
 
+require 'addressable/uri'
+
 module Pullr
   module Repository
     protected
@@ -18,7 +20,14 @@ module Pullr
     #
     def initialize(options={})
       @scm = options[:scm]
-      @uri = options[:uri]
+      @uri = nil
+
+      case options[:uri]
+      when Hash
+        @uri = Addressable::URI.new(options[:uri])
+      when String
+        @uri = Addressable::URI.parse(options[:uri])
+      end
     end
 
     #

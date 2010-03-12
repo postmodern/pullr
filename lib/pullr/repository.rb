@@ -54,7 +54,7 @@ module Pullr
     #
     def infer_scm_from_dir
       if @path
-        if (@scm = SCm.infer_from_dir(@path))
+        if (@scm = SCM.infer_from_dir(@path))
           return true
         end
       end

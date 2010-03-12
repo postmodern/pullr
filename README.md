@@ -38,6 +38,10 @@ Update an existing repository:
 
 ## Examples
 
+## Requirements
+
+* (addressable)[http://addressable.rubyforge.org/] >= 0.2.1
+
 ## Install
 
     $ sudo gem install pullr

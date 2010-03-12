@@ -25,7 +25,7 @@ Pull down a repository:
 
 Pull down a repository into a specific directory:
 
-    $ pullr git://github.com/datamapper/dm-rails.git /home/dm-rails
+    $ pullr git://github.com/datamapper/dm-rails.git /home/deploy/dm-rails
 
 Pull down a repository from a generic HTTP URL:
 

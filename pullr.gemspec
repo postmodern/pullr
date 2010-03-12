@@ -17,12 +17,41 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md"
   ]
+  s.files = [
+    ".gitignore",
+    ".specopts",
+    ".yardopts",
+    "ChangeLog.md",
+    "LICENSE.txt",
+    "README.md",
+    "Rakefile",
+    "lib/pullr.rb",
+    "lib/pullr/exceptions.rb",
+    "lib/pullr/exceptions/ambigious_repository.rb",
+    "lib/pullr/exceptions/ambigious_uri.rb",
+    "lib/pullr/exceptions/unknown_scm.rb",
+    "lib/pullr/local_repository.rb",
+    "lib/pullr/remote_repository.rb",
+    "lib/pullr/repository.rb",
+    "lib/pullr/scm.rb",
+    "lib/pullr/scm/git.rb",
+    "lib/pullr/scm/mercurial.rb",
+    "lib/pullr/scm/rsync.rb",
+    "lib/pullr/scm/scm.rb",
+    "lib/pullr/scm/sub_version.rb",
+    "lib/pullr/version.rb",
+    "pullr.gemspec",
+    "spec/spec_helper.rb"
+  ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/postmodern/pullr}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A Ruby library for quickly pulling down or updating any Repository.}
+  s.test_files = [
+    "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

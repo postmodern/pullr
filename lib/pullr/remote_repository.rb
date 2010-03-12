@@ -1,3 +1,4 @@
+require 'pullr/exceptions/ambigious_uri'
 require 'pullr/repository'
 require 'pullr/local_repository'
 require 'pullr/scm/scm'
@@ -30,6 +31,10 @@ module Pullr
       @scm = options[:scm]
 
       infer_scm_from_uri unless @scm
+
+      unless @scm
+        raise(AmbigiousURI,"could not infer the SCM used for the URI #{@uri}",caller)
+      end
 
       extend SCM.lookup(@scm)
     end

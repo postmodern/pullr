@@ -1,3 +1,4 @@
+require 'pullr/exceptions/ambigious_repository'
 require 'pullr/repository'
 
 module Pullr
@@ -34,7 +35,13 @@ module Pullr
       @scm = options[:scm]
       @uri = options[:uri]
 
-      infer_scm_from_dir unless @scm
+      unless @scm
+        infer_scm_from_dir && infer_scm_from_uri
+      end
+
+      unless @scm
+        raise(AmbigiousRepository,"could not infer the SCM from the directory #{@path.dump}",caller)
+      end
 
       extend SCM.lookup(@scm)
     end

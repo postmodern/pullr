@@ -1,6 +1,3 @@
-require 'pullr/exceptions/ambigious_uri'
-require 'pullr/exceptions/ambigious_repository'
-
 module Pullr
   module Repository
     protected
@@ -33,21 +30,21 @@ module Pullr
     #   not be infered from it.
     #
     def infer_scm_from_uri
-      return false unless @uri
+      if @uri
+        uri_scheme = @uri.scheme
 
-      uri_scheme = @uri.scheme
+        if (@scm = SCM::SCHEMES[uri_scheme])
+          return true
+        end
 
-      if (@scm = SCM::SCHEMES[uri_scheme])
-        return true
+        uri_ext = File.extname(@uri.path)
+
+        if (@scm = SCM::EXTS[uri_ext])
+          return true
+        end
       end
 
-      uri_ext = File.extname(@uri.path)
-
-      if (@scm = SCM::EXTS[uri_ext])
-        return true
-      end
-
-      raise(AmbigiousURI,"could not infer the SCM used for the URI #{@uri}",caller)
+      return false
     end
 
     #
@@ -61,8 +58,6 @@ module Pullr
     #   various SCMs.
     #
     def infer_scm_from_dir
-      return false unless @path
-
       if @path
         SCM::DIRS.each do |name,scm|
           if File.directory?(File.join(@path,name))
@@ -70,11 +65,9 @@ module Pullr
             return true
           end
         end
-
-        infer_scm_from_uri
-
-        raise(AmbigiousRepository,"could not infer the SCM from the directory #{@path.dump}",caller)
       end
+
+      return false
     end
   end
 end

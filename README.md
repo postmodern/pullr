@@ -17,6 +17,25 @@ Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync.
   * SubVersion (SVN)
   * Rsync
 
+## Synopsis
+
+Pull down a repository:
+
+    $ pullr git://github.com/evanphx/rubinius.git
+
+Pull down a repository into a specific directory:
+
+    $ pullr git://github.com/datamapper/dm-rails.git /home/dm-rails
+
+Pull down a repository from a generic HTTP URL:
+
+    $ pullr http://www.tortall.net/svn/yasm/trunk/yasm -S svn
+
+Update an existing repository:
+
+    $ cd yasm
+    $ pullr -u
+
 ## Examples
 
 ## Install

@@ -40,7 +40,7 @@ Update an existing repository:
 
 ## Requirements
 
-* (addressable)[http://addressable.rubyforge.org/] >= 0.2.1
+* [addressable](http://addressable.rubyforge.org/) >= 0.2.1
 
 ## Install
 

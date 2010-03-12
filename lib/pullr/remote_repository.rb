@@ -1,7 +1,6 @@
 require 'pullr/exceptions/ambigious_uri'
 require 'pullr/repository'
 require 'pullr/local_repository'
-require 'pullr/scm/scm'
 
 module Pullr
   class RemoteRepository

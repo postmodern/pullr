@@ -1,3 +1,5 @@
+require 'pullr/scm/scm'
+
 module Pullr
   module Repository
     protected

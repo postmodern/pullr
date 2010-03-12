@@ -3,7 +3,7 @@ module Pullr
     module Rsync
       protected
 
-      def clone(uri,dest=nil)
+      def pull(uri,dest=nil)
         unless dest
           raise(ArgumentError,"the destination argument for clone is missing",caller)
         end
@@ -11,7 +11,7 @@ module Pullr
         sh 'rsync', '-a', rsync_uri(uri), dest
       end
 
-      def pull(path,uri=nil)
+      def update(path,uri=nil)
         unless uri
           raise(ArgumentError,"must specify the 'uri' argument to pull from",caller)
         end

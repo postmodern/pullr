@@ -62,7 +62,7 @@ module Pullr
     # @param [URI::Generic] uri
     #   Optional URI to pull from.
     #
-    def pull(uri=self.uri)
+    def update(uri=self.uri)
       super(@path,uri)
     end
   

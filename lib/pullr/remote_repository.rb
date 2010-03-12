@@ -47,7 +47,7 @@ module Pullr
     # @return [Repository]
     #   The cloned repository.
     #
-    def clone(dest)
+    def pull(dest)
       super(@uri,dest)
 
       return LocalRepository.new(:path => dest, :scm => @scm)

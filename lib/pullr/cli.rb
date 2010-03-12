@@ -46,7 +46,7 @@ module Pullr
           :scm => @scm
         )
 
-        repo.clone(@path || ARGV[1])
+        repo.pull(@path || ARGV[1])
       when :update
         repo = LocalRepository.new(
           :uri => @uri,
@@ -54,7 +54,7 @@ module Pullr
           :scm => @scm
         )
 
-        repo.pull
+        repo.update
       end
     end
 

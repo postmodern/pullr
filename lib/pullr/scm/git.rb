@@ -7,7 +7,7 @@ module Pullr
       # Makes a clone of the git source repository as the new local copy
       # of the project.
       #
-      def clone(uri,dest=nil)
+      def pull(uri,dest=nil)
         if dest
           sh 'git', 'clone', uri, dest
         else
@@ -18,7 +18,7 @@ module Pullr
       #
       # Updates the local repository.
       #
-      def pull(path,uri=nil)
+      def update(path,uri=nil)
         cd(path) do
           sh 'git', 'reset', '--hard', 'HEAD'
           sh 'git', 'pull'

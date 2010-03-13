@@ -38,6 +38,28 @@ Update an existing repository:
 
 ## Examples
 
+Pull down a repository:
+
+    remote = Pullr::RemoteRepository.new(:uri => 'git://github.com/evanphx/rubinius.git')
+    remote.pull
+    # => #<Pullr::LocalRepository: ...>
+
+Pull down a repository into a specific directory:
+
+    remote = Pullr::RemoteRepository.new(:uri => 'git://github.com/datamapper/dm-rails.git /home/deploy/dm-rails')
+    remote.pull('/home/deploy/dm-rails')
+    # => #<Pullr::LocalRepository: ...>
+
+Pull down a repository from a generic HTTP URL:
+
+    remote = Pullr::RemoteRepository.new(:uri => 'http://www.tortall.net/svn/yasm/trunk/yasm', :scm => :svn)
+    remote.pull
+
+Update an existing repository:
+
+    local = Pullr::LocalRepository.new(:path => 'yasm')
+    local.update
+
 ## Requirements
 
 * [addressable](http://addressable.rubyforge.org/) >= 0.2.1

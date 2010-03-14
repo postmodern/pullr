@@ -7,7 +7,9 @@
 ## Description
 
 Pullr is a Ruby library for quickly pulling down or updating any Repository.
-Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync.
+Currently, Pullr supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync.
+Pullr provides a command-line utility and an API which can be used by
+other frameworks.
 
 ## Features
 

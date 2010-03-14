@@ -29,7 +29,7 @@ module Pullr
     # @param [String] program
     #   The name or path of the program to run.
     #
-    # @param [Array] args
+    # @param [Array<String>] args
     #   The additional arguments to run with the program.
     #
     def sh(program,*args)

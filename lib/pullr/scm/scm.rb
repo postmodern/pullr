@@ -6,6 +6,7 @@ require 'pullr/scm/rsync'
 
 module Pullr
   module SCM
+    # Mapping of known SCM names and their respective mixins
     NAMES = {
       :git => Git,
       :mercurial => Mercurial,
@@ -16,7 +17,7 @@ module Pullr
       :rsync => Rsync
     }
 
-    # Mapping of known URI schemes and their respective SCMs
+    # Mapping of known URI schemes and their respective SCM names
     SCHEMES = {
       'git' => :git,
       'hg' => :mercurial,
@@ -25,7 +26,7 @@ module Pullr
       'rsync' => :rsync
     }
 
-    # Mapping of URI path extensions and their respective SCMs
+    # Mapping of URI path extensions and their respective SCM names
     EXTS = {
       '.git' => :git
     }
@@ -81,6 +82,18 @@ module Pullr
       return nil
     end
 
+    #
+    # Finds the SCM mixin for a given SCM name.
+    #
+    # @param [Symbol, String] name
+    #   The name of the SCM.
+    #
+    # @return [Module]
+    #   The SCM mixin.
+    #
+    # @raise [UnknownSCM]
+    #   The SCM name did not map to a known SCM mixin.
+    #
     def SCM.lookup(name)
       name = name.to_sym
 

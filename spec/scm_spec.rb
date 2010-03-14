@@ -2,6 +2,8 @@ require 'pullr/scm/scm'
 
 require 'spec_helper'
 require 'addressable/uri'
+require 'fileutils'
+require 'tmpdir'
 
 describe SCM do
   it "should lookup an SCM with a String name" do
@@ -34,6 +36,13 @@ describe SCM do
 
       SCM.infer_from_uri(uri).should == :git
     end
+
+    it "should be inferable from the SCM control directory" do
+      repo = Dir.mktmpdir('repo')
+      FileUtils.mkdir(File.join(repo,'.git'))
+
+      SCM.infer_from_dir(repo).should == :git
+    end
   end
 
   describe "Mercurial" do
@@ -49,6 +58,13 @@ describe SCM do
       uri = Addressable::URI.parse('hg://sourceforge.net')
 
       SCM.infer_from_uri(uri).should == :mercurial
+    end
+
+    it "should be inferable from the SCM control directory" do
+      repo = Dir.mktmpdir('repo')
+      FileUtils.mkdir(File.join(repo,'.hg'))
+
+      SCM.infer_from_dir(repo).should == :mercurial
     end
   end
 
@@ -75,6 +91,13 @@ describe SCM do
       uri = Addressable::URI.parse('svn+ssh://sourceforge.net')
 
       SCM.infer_from_uri(uri).should == :sub_version
+    end
+
+    it "should be inferable from the SCM control directory" do
+      repo = Dir.mktmpdir('repo')
+      FileUtils.mkdir(File.join(repo,'.svn'))
+
+      SCM.infer_from_dir(repo).should == :sub_version
     end
   end
 

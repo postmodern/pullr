@@ -4,8 +4,6 @@ require 'addressable/uri'
 
 module Pullr
   module Repository
-    protected
-
     #
     # Initializes the repository.
     #
@@ -31,6 +29,8 @@ module Pullr
         @uri = Addressable::URI.parse(options[:uri])
       end
     end
+
+    protected
 
     #
     # Attempts to infer the SCM used for the remote repository.

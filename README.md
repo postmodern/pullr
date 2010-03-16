@@ -48,7 +48,7 @@ Pull down a repository:
 
 Pull down a repository into a specific directory:
 
-    remote = Pullr::RemoteRepository.new(:uri => 'git://github.com/datamapper/dm-rails.git /home/deploy/dm-rails')
+    remote = Pullr::RemoteRepository.new(:uri => 'git://github.com/datamapper/dm-rails.git')
     remote.pull('/home/deploy/dm-rails')
     # => #<Pullr::LocalRepository: ...>
 

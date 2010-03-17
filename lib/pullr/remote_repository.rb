@@ -38,6 +38,33 @@ module Pullr
     end
 
     #
+    # The name of the repository.
+    #
+    # @return [String]
+    #   The remote repository name.
+    #
+    # @since 0.1.2
+    #
+    def name
+      dirs = File.expand_path(@uri.path).split(File::SEPARATOR)
+
+      unless dirs.empty?
+        if @scm == :sub_version
+          if dirs[-1] == 'trunk'
+            dirs.pop
+          elsif (dirs[-2] == 'branches' || dirs[-2] == 'tags')
+            dirs.pop
+            dirs.pop
+          end
+        elsif @scm == :git
+          dirs.last.gsub!(/\.git$/,'') if dirs.last =~ /\.git$/
+        end
+      end
+
+      return (dirs.last || @uri.host)
+    end
+
+    #
     # Clones the remote repository into the given destination.
     #
     # @param [String] dest

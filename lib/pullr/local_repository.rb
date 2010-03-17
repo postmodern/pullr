@@ -47,6 +47,18 @@ module Pullr
     end
 
     #
+    # The name of the repository.
+    #
+    # @return [String]
+    #   The local repository name.
+    #
+    # @since 0.1.2
+    #
+    def name
+      File.basename(@path)
+    end
+
+    #
     # The control directory used by the SCM.
     #
     # @return [String]

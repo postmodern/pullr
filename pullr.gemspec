@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-03-23}
+  s.date = %q{2010-04-02}
   s.default_executable = %q{pullr}
   s.description = %q{Pullr is a Ruby library for quickly pulling down or updating any Repository. Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync. Pullr provides a command-line utility and an API which can be used by other frameworks.}
   s.email = %q{postmodern.mod3@gmail.com}
@@ -54,6 +54,7 @@ Gem::Specification.new do |s|
   ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/postmodern/pullr}
+  s.licenses = ["MIT"]
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}

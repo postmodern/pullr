@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'bundler'
 
 begin
   Bundler.setup(:runtime, :test)

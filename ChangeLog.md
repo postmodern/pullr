@@ -1,3 +1,7 @@
+### 0.1.3 / 2010-07-18
+
+* Require `uri` before `addressable/uri`.
+
 ### 0.1.2 / 2010-03-23
 
 * Added {Pullr::LocalRepository#name}.

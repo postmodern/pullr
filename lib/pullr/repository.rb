@@ -1,5 +1,6 @@
 require 'pullr/scm/scm'
 
+require 'uri'
 require 'addressable/uri'
 
 module Pullr

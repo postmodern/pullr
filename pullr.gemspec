@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-07-18}
+  s.date = %q{2010-10-10}
   s.default_executable = %q{pullr}
   s.description = %q{Pullr is a Ruby library for quickly pulling down or updating any Repository. Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN) and Rsync. Pullr provides a command-line utility and an API which can be used by other frameworks.}
   s.email = %q{postmodern.mod3@gmail.com}
@@ -21,10 +21,12 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".gitignore",
+    ".rspec",
     ".specopts",
     ".yardopts",
     "ChangeLog.md",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "Rakefile",
@@ -72,21 +74,18 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<addressable>, [">= 2.1.1"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.4.0"])
-      s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.0.0"])
     else
-      s.add_dependency(%q<addressable>, [">= 2.1.1"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
-      s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
-      s.add_dependency(%q<rspec>, ["~> 1.3.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
+      s.add_dependency(%q<rspec>, ["~> 2.0.0"])
     end
   else
-    s.add_dependency(%q<addressable>, [">= 2.1.1"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
-    s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
-    s.add_dependency(%q<rspec>, ["~> 1.3.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
+    s.add_dependency(%q<rspec>, ["~> 2.0.0"])
   end
 end
 

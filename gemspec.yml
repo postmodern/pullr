@@ -1,0 +1,21 @@
+name: pullr
+summary: A Ruby library for quickly pulling down or updating any Repository.
+description:
+  Pullr is a Ruby library for quickly pulling down or updating any
+  Repository. Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN)
+  and Rsync. Pullr provides a command-line utility and an API which can be
+  used by other frameworks.
+license: MIT
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: http://github.com/postmodern/pullr
+has_yard: true
+
+dependencies:
+  addressable: >= 2.1.1
+
+development_dependencies:
+  ore: ~> 0.1.0
+  ore-tasks: ~> 0.1.0
+  rspec: ~> 2.0.0
+  yard: ~> 0.6.0

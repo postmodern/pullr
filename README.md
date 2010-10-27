@@ -70,7 +70,7 @@ Update an existing repository:
 
     $ sudo gem install pullr
 
-## License
+## Copyright
 
 Copyright (c) 2010 Hal Brodigan
 

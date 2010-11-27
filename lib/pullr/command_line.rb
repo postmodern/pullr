@@ -11,16 +11,7 @@ module Pullr
     #   temporarily, then changed back after the block has finished.
     #
     def cd(path,&block)
-      if block
-        pwd = Dir.pwd
-        Dir.chdir(path)
-
-        block.call()
-
-        Dir.chdir(pwd)
-      else
-        Dir.chdir(path)
-      end
+      Dir.chdir(path,&block)
     end
 
     #

@@ -1,7 +1,8 @@
 # Pullr
 
-* [pullr.rubyforge.org](http://pullr.rubyforge.org/)
-* [github.com/postmodern/pullr](http://github.com/postmodern/pullr/)
+* [Source](http://github.com/postmodern/pullr)
+* [Issues](http://github.com/postmodern/pullr/issues)
+* [Documentation](http://rubydoc.info/gems/pullr)
 * Postmodern (postmodern.mod3 at gmail.com)
 
 ## Description

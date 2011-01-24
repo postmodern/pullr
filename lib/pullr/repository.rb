@@ -37,7 +37,7 @@ module Pullr
     # Attempts to infer the SCM used for the remote repository.
     #
     # @return [Boolean]
-    #   Specifies whether the SCM was infered from the repository's URI.
+    #   Specifies whether the SCM was inferred from the repository's URI.
     #
     def infer_scm_from_uri
       if @uri
@@ -53,7 +53,7 @@ module Pullr
     # Attempts to infer the SCM used for the repository.
     #
     # @return [Boolean]
-    #   Specifies whether the SCM was successfully infered.
+    #   Specifies whether the SCM was successfully inferred.
     #
     def infer_scm_from_dir
       if @path

@@ -45,7 +45,7 @@ module Pullr
     #   The URI to infer the SCM from.
     #
     # @return [Symbol]
-    #   The name of the infered SCM.
+    #   The name of the inferred SCM.
     #
     def SCM.infer_from_uri(uri)
       uri_scheme = uri.scheme
@@ -70,7 +70,7 @@ module Pullr
     #   The path to the directory.
     #
     # @return [Symbol]
-    #   The name of the infered SCM.
+    #   The name of the inferred SCM.
     #
     def SCM.infer_from_dir(path)
       SCM::DIRS.each do |name,scm|

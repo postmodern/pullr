@@ -12,7 +12,7 @@ homepage: http://github.com/postmodern/pullr
 has_yard: true
 
 dependencies:
-  addressable: ~> 2.2.0
+  addressable: ~> 2.1
 
 development_dependencies:
   ore-tasks: ~> 0.4

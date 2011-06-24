@@ -38,7 +38,7 @@ module Pullr
         @uri ||= @args[0]
 
         unless @uri
-          STDERR.puts "pullr: missing the URI argument"
+          $stderr.puts "pullr: missing the URI argument"
           exit -1
         end
 
@@ -88,8 +88,8 @@ module Pullr
       begin
         @args = opts.parse!(args)
       rescue OptionParser::InvalidOption => e
-        STDERR.puts e.message
-        STDERR.puts opts
+        $stderr.puts e.message
+        $stderr.puts opts
         exit -1
       end
     end

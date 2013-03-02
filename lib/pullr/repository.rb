@@ -19,16 +19,14 @@ module Pullr
     #
     def initialize(options={})
       @scm = options[:scm]
-      @uri = nil
-
-      case options[:uri]
-      when Addressable::URI
-        @uri = options[:uri]
-      when Hash
-        @uri = Addressable::URI.new(options[:uri])
-      when URI::Generic, String
-        @uri = Addressable::URI.parse(options[:uri])
-      end
+      @uri = case options[:uri]
+             when Addressable::URI
+               options[:uri]
+             when Hash
+               Addressable::URI.new(options[:uri])
+             when URI::Generic, String
+               Addressable::URI.parse(options[:uri])
+             end
     end
 
     protected

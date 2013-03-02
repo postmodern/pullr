@@ -69,7 +69,7 @@ Update an existing repository:
 
 ## Install
 
-    $ sudo gem install pullr
+    $ gem install pullr
 
 ## Copyright
 

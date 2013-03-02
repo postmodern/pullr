@@ -8,22 +8,22 @@ module Pullr
   module SCM
     # Mapping of known SCM names and their respective mixins
     NAMES = {
-      :git => Git,
-      :mercurial => Mercurial,
-      :hg => Mercurial,
+      :git         => Git,
+      :mercurial   => Mercurial,
+      :hg          => Mercurial,
       :sub_version => SubVersion,
-      :subversion => SubVersion,
-      :svn => SubVersion,
-      :rsync => Rsync
+      :subversion  => SubVersion,
+      :svn         => SubVersion,
+      :rsync       => Rsync
     }
 
     # Mapping of known URI schemes and their respective SCM names
     SCHEMES = {
-      'git' => :git,
-      'hg' => :mercurial,
-      'svn' => :sub_version,
+      'git'     => :git,
+      'hg'      => :mercurial,
+      'svn'     => :sub_version,
       'svn+ssh' => :sub_version,
-      'rsync' => :rsync
+      'rsync'   => :rsync
     }
 
     # Mapping of URI path extensions and their respective SCM names
@@ -34,7 +34,7 @@ module Pullr
     # Mapping of directories and the SCMs that use them
     DIRS = {
       '.git' => :git,
-      '.hg' => :mercurial,
+      '.hg'  => :mercurial,
       '.svn' => :sub_version
     }
 
@@ -47,16 +47,16 @@ module Pullr
     # @return [Symbol]
     #   The name of the inferred SCM.
     #
-    def SCM.infer_from_uri(uri)
+    def self.infer_from_uri(uri)
       uri_scheme = uri.scheme
 
-      if (scm = SCM::SCHEMES[uri_scheme])
+      if (scm = SCHEMES[uri_scheme])
         return scm
       end
 
       uri_ext = File.extname(uri.path)
 
-      if (scm = SCM::EXTS[uri_ext])
+      if (scm = EXTS[uri_ext])
         return scm
       end
 
@@ -72,8 +72,8 @@ module Pullr
     # @return [Symbol]
     #   The name of the inferred SCM.
     #
-    def SCM.infer_from_dir(path)
-      SCM::DIRS.each do |name,scm|
+    def self.infer_from_dir(path)
+      DIRS.each do |name,scm|
         if File.directory?(File.join(path,name))
           return scm
         end
@@ -94,7 +94,7 @@ module Pullr
     # @raise [UnknownSCM]
     #   The SCM name did not map to a known SCM mixin.
     #
-    def SCM.lookup(name)
+    def self.lookup(name)
       name = name.to_sym
 
       unless NAMES.has_key?(name)

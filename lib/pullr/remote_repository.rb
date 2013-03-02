@@ -31,7 +31,7 @@ module Pullr
       infer_scm_from_uri unless @scm
 
       unless @scm
-        raise(AmbigiousURI,"could not infer the SCM used for the URI #{@uri}",caller)
+        raise(AmbigiousURI,"could not infer the SCM used for the URI #{@uri}")
       end
 
       extend SCM.lookup(@scm)

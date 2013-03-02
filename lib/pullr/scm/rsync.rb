@@ -16,7 +16,7 @@ module Pullr
       #
       def scm_pull(uri,dest=nil)
         unless dest
-          raise(ArgumentError,"the destination argument for clone is missing",caller)
+          raise(ArgumentError,"the destination argument for clone is missing")
         end
 
         sh 'rsync', '-a', rsync_uri(uri), dest
@@ -33,7 +33,7 @@ module Pullr
       #
       def scm_update(path,uri=nil)
         unless uri
-          raise(ArgumentError,"must specify the 'uri' argument to pull from",caller)
+          raise(ArgumentError,"must specify the 'uri' argument to pull from")
         end
 
         sh 'rsync', '-v', '-a', '--delete-after', rsync_uri(uri), path

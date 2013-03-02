@@ -98,7 +98,7 @@ module Pullr
       name = name.to_sym
 
       unless NAMES.has_key?(name)
-        raise(UnknownSCM,"unknown SCM #{name}",caller)
+        raise(UnknownSCM,"unknown SCM #{name}")
       end
 
       return NAMES[name]

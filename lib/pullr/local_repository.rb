@@ -40,7 +40,7 @@ module Pullr
       end
 
       unless @scm
-        raise(AmbigiousRepository,"could not infer the SCM from the directory #{@path.dump}",caller)
+        raise(AmbigiousRepository,"could not infer the SCM from the directory #{@path.dump}")
       end
 
       extend SCM.lookup(@scm)

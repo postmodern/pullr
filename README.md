@@ -3,7 +3,7 @@
 * [Source](https://github.com/postmodern/pullr)
 * [Issues](https://github.com/postmodern/pullr/issues)
 * [Documentation](http://rubydoc.info/gems/pullr)
-* Postmodern (postmodern.mod3 at gmail.com)
+* [Email](mailto:postmodern.mod3 at gmail.com)
 
 ## Description
 

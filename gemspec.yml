@@ -5,10 +5,11 @@ description:
   Repository. Pullr currently supports Git, Mercurial (Hg), SubVersion (SVN)
   and Rsync. Pullr provides a command-line utility and an API which can be
   used by other frameworks.
+
 license: MIT
 authors: Postmodern
 email: postmodern.mod3@gmail.com
-homepage: http://github.com/postmodern/pullr
+homepage: https://github.com/postmodern/pullr#readme
 has_yard: true
 
 dependencies:

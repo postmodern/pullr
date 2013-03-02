@@ -57,7 +57,7 @@ module Pullr
             dirs.pop
           end
         elsif @scm == :git
-          dirs.last.gsub!(/\.git$/,'') if dirs.last =~ /\.git$/
+          dirs.last.chomp!('.git')
         end
       end
 

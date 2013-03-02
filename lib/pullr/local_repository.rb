@@ -55,7 +55,7 @@ module Pullr
     # @since 0.1.2
     #
     def name
-      File.basename(@path)
+      @name ||= File.basename(@path)
     end
 
     #
